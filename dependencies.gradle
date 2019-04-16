@@ -1,0 +1,95 @@
+ext {
+    versions = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            buildToolsVersion: "28.0.3",
+
+            support          : "28.0.0",
+            okHttp           : "3.10.0",
+            retrofit         : '2.4.0',
+            dagger           : '2.15',
+            rxJava           : '2.2.2',
+            rxAndroid        : '2.1.0',
+            rxPermissions    : '0.10.2',
+            glide            : '4.6.1',
+            stetho           : '1.5.0',
+
+            espresso         : '3.0.1',
+            testRunner       : '1.0.1',
+            restMock         : '0.3.1',
+            mockito          : '2.18.0',
+            junit            : '4.12',
+            powerMock        : '1.6.6',
+            leakcanary       : '1.5.4',
+            stethOkhttp      : '1.5.0',
+            multiDex         : '1.0.3',
+            eventbus         : '3.1.1'
+    ]
+
+    junit = [junit: "junit:junit:$versions.junit"]
+
+    supportDeps = [
+            cardView         : "com.android.support:cardview-v7:$versions.support",
+            appcompatV7      : "com.android.support:appcompat-v7:$versions.support",
+            design           : "com.android.support:design:$versions.support",
+            recyclerView     : "com.android.support:recyclerview-v7:$versions.support",
+            supportAnnotation: "com.android.support:support-annotations:$versions.support",
+            gridLayout       : "com.android.support:gridlayout-v7:$versions.support",
+            constraint       : "com.android.support.constraint:constraint-layout:1.1.2"
+    ]
+
+    rxJava = [
+            rxJava       : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+            rxAndroid    : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+            rxRermissions: "com.github.tbruyelle:rxpermissions:$versions.rxPermissions"
+    ]
+
+    retrofit = [
+            retrofit     : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:2.3.0",
+    ]
+
+    dagger2 = [dagger : "com.google.dagger:dagger:$versions.dagger"]
+    daggerCompiler = [daggerCompiler : "com.google.dagger:dagger-compiler:$versions.dagger"]
+
+    okHttp = [
+            logger: "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+            okhttp: "com.squareup.okhttp3:okhttp:$versions.okHttp",
+            stetho: "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+    ]
+
+    leakCannary = "com.squareup.leakcanary:leakcanary-android:1.5.1"
+    eventbus = "org.greenrobot:eventbus:$versions.eventbus"
+
+    bufferknife = "com.jakewharton:butterknife:8.8.1"
+    butterknifeCompiler = 'com.jakewharton:butterknife-compiler:8.8.1'
+    glide = "com.github.bumptech.glide:glide:$versions.glide"
+    glideCompiler = "com.github.bumptech.glide:compiler:$versions.glide"
+    glideOkhttp = "com.github.bumptech.glide:okhttp3-integration:$versions.glide"
+    recyclerviewHelper = 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    customPopwindow = 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1' //https://github.com/pinguo-zhouwei/CustomPopwindow
+    readMoreTextView='com.ms-square:expandableTextView:0.1.4'
+    //第三方tabLayout
+    flycoTabLayout = 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //阿里路由
+    arouterApi = 'com.alibaba:arouter-api:1.4.0'
+    arouterCompiler = 'com.alibaba:arouter-compiler:1.2.1'
+
+    //bugly
+    bugly =  'com.tencent.bugly:crashreport:latest.release'
+    /**
+     * 项目引用库
+     */
+    supportLibs = supportDeps.values()
+    networkLibs = retrofit.values() + okHttp.values()
+    rxJavaLibs = rxJava.values()
+    dagger2 = dagger2.values()
+    daggerCompiler = daggerCompiler.values()
+    otherLibs = [glide, bufferknife, eventbus, arouterApi,bugly]
+    widgetLibs = [recyclerviewHelper, customPopwindow,flycoTabLayout,readMoreTextView]
+    debugLibs = leakCannary
+    releaseLibs = leakCannary
+    annotationProcessorLibs = [glideCompiler, butterknifeCompiler, arouterCompiler]
+}
